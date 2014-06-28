@@ -1,0 +1,4 @@
+<tr><td class="span6 offset3"><span style="padding-top:2px;"><%=@comment.id%></span></td>
+<td class="span6 offset3"><span><%=@comment.content%></span></td>
+<td class="span6 offset3"><%= link_to "Edit Comment", edit_comment_path(@comment)%></td>                 
+<td class="span6 offset3"><%= link_to "Delete Comment", @comment, method: :delete, data: {confirm: "You sure?"}%></td></tr>

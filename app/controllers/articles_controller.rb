@@ -10,14 +10,25 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def search
+     @text_search = params[:title]
+     @articles = Article.find_by_sql ["SELECT * FROM articles WHERE title = :title", { :title => @text_search }]
+     
+     respond_to do |format|
+       format.html # index.html.erb
+       format.json { render json: @articles }
+    end
+  end
+  
   # GET /articles/1
   # GET /articles/1.json
   def show
     @article = Article.find(params[:id])
-
+    @comments = @article.comments
+    @comment = @article.comments.new
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @article }
+      format.json { render json: @article; @comment }
     end
   end
 

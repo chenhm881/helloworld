@@ -1,9 +1,11 @@
 Helloworld::Application.routes.draw do
+  
+
+  
+  match 'articles/search(.:format)' => 'articles#search' , :as => :search, via: :get  
   resources :articles
-
-
   resources :users
-
+  resources :comments
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
