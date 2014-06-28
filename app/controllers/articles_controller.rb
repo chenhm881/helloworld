@@ -15,7 +15,8 @@ class ArticlesController < ApplicationController
      @articles = Article.find_by_sql ["SELECT * FROM articles WHERE title = :title", { :title => @text_search }]
      
      respond_to do |format|
-       format.html # index.html.erb
+       format.html #index.html.erb
+       format.html{ render 'articles/index', :articles => @articles }
        format.json { render json: @articles }
     end
   end
