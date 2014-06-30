@@ -12,11 +12,12 @@ class ArticlesController < ApplicationController
 
   def search
      @text_search = params[:title]
-     @articles = Article.find_by_sql ["SELECT * FROM articles WHERE title = :title", { :title => @text_search }]
+     @articles = Article.find_by_sql ["SELECT * FROM articles WHERE title like :title or content like :title", { :title => '%'+@text_search+'%' }]
      
      respond_to do |format|
        format.html #index.html.erb
        format.html{ render 'articles/index', :articles => @articles }
+       format.js { render 'articles/search'}
        format.json { render json: @articles }
     end
   end

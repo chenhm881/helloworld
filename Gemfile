@@ -18,6 +18,7 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'bcrypt-ruby'
 end
 
 gem 'jquery-rails'
@@ -35,4 +36,11 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+ gem 'debugger'
+
+ group :development, :test do
+      gem "rspec-rails"
+      gem "cucumber-rails", :require => false
+      gem 'database_cleaner', github: 'bmabey/database_cleaner'
+      gem 'capybara'
+ end

@@ -1,14 +1,4 @@
-<h1>Listing articles</h1>
-
-
-<%= form_tag search_path, :method => :get, :remote => true  do %>
-  <div>
-    <%= text_field_tag 'title' %>
-    <%= submit_tag 'Search' %>
-  </div>
-<% end %>
-
-<div id='articles_original'><table>
+<table>
   <tr>
     <th>Title</th>
     <th>Content</th>
@@ -29,10 +19,3 @@
   </tr>
 <% end %>
 </table>
-
-</div>
-<div id='articles_list'></div>
-
-<br />
-
-<%= link_to 'New Article', new_article_path %>
