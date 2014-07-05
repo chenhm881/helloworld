@@ -1,8 +1,12 @@
 Helloworld::Application.routes.draw do
   
-  root :to  => "articles#index"
+  root  :to  => "articles#index" 
   
-  match 'articles/search(.:format)' => 'articles#search' , :as => :search, via: :get  
+  match '/signup' => 'users#new', via: :get
+  match '/signin' => 'sessions#new', via: :get
+  match '/signout' => 'sessions#destroy', via: :delete
+  match 'articles/search(.:format)' => 'articles#search' , :as => :search, via: :get 
+  match 'comments/answer(.:format)' => 'comments#answer', :as => :answer, via: :post  
   resources :articles
   resources :users
   resources :comments

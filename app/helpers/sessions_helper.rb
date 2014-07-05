@@ -1,10 +1,10 @@
 module SessionsHelper
 
-def sign_in(user)
+  def sign_in(user)
     remember_token = User.new_remember_token
     cookies.permanent[:remember_token] = remember_token
-    user.update_attribute(:remember_token, User.hash(remember_token))
-    current_user = user
+    user.update_attribute(:remember_token, remember_token)
+    self.current_user = user
   end
 
   def signed_in?
@@ -18,7 +18,7 @@ def sign_in(user)
 
   def destroy
     sign_out
-    redirect_to root_url
+    redirect_to "/articles"
   end
 
   def current_user=(user)
