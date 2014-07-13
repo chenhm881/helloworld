@@ -1,5 +1,7 @@
-<% if @comment.errors.empty? %>
-  $('<%= j(render :partial => 'comment', :integer => @window, :object=> @comment) %>').appendTo($('#msg'));
-<% else %>
-  alert('@comment.errors.full_messages.join(',')');
-<% end %>
+//<% if @comment.errors.empty? %>
+//$("<%= j(render :partial => 'comment', :string => @window, :object => @comment) %>").appendTo($('#msg'));
+//<% else %>
+//  alert('@comment.errors.full_messages.join(',')');
+//<% end %>
+$('#init-msg').css('display','none');
+$('#msg').html($("<%= j(render :partial => 'comment', :string => @window, :object => @comment) %>"));

@@ -1,6 +1,13 @@
-<tr><td class="span6 offset3"><span style="padding-top:2px;"></span></td>
-<td class="span6 offset3"><span><%=@window%></span></td>
-<!--
-<td class="span6 offset3"><%= link_to "Edit Comment", edit_comment_path(@comment)%></td>                 
-<td class="span6 offset3"><%= link_to "Delete Comment", @comment, method: :delete, data: {confirm: "You sure?"}%></td></tr>
--->
+<%= form_tag(answer_path, remote: true) do %>
+<p>
+  <b>number: <%= label_tag :question, @question %></b>
+</p>
+<%= hidden_field_tag :question, @question %>
+<%= hidden_field_tag :id, @comment.id %> 
+<%= text_field_tag :answer, @answer %> 
+<%= submit_tag 'Answer'%>
+<% end %>
+<table>
+  <tbody><tr><td><span>seat: <%= @window %></span></td></tr>
+  </tbody>
+</table>
