@@ -28,7 +28,6 @@ class CommentsController < ApplicationController
     @vocalularycard = CommentHelper::VocabularyCard.new(44, 2, 1, 2,lambda{|value='here'| puts value})
     @comment = @vocalularycard.rand_record
     @question = @comment.content
-    @window = @answer
     respond_to do |format|
       format.html {render @comment}
       format.js { render 'comments/answer'}

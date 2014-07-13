@@ -1,13 +1,25 @@
+<div id="question" style="display:block">
+<p>
+   <b><%=@comment.content %></b>
+</p>
 <%= form_tag(answer_path, remote: true) do %>
+<!--
 <p>
   <b>number: <%= label_tag :question, @question %></b>
 </p>
-<%= hidden_field_tag :question, @question %>
+<%= hidden_field_tag :question, @question %>-->
 <%= hidden_field_tag :id, @comment.id %> 
-<%= text_field_tag :answer, @answer %> 
-<%= submit_tag 'Answer'%>
+<!-- <%= text_field_tag :answer, @answer %> -->
+<%= submit_tag 'Turn back the card'%>
 <% end %>
+
+<!--<%= button_to "Turn back the card", answer_path,{ remote: true, id: @comment.id }%>
+-->
+</div>
+<div id="answer" style="display:none">
+<div><input type='button' id='close' value='close'/></div>
 <table>
-  <tbody><tr><td><span>seat: <%= @window %></span></td></tr>
+  <tbody><tr><td><span>seat: <%= @answer %></span></td></tr>
   </tbody>
 </table>
+</div>

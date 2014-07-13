@@ -3,5 +3,10 @@
 //<% else %>
 //  alert('@comment.errors.full_messages.join(',')');
 //<% end %>
-$('#init-msg').css('display','none');
-$('#msg').html($("<%= j(render :partial => 'comment', :string => @window, :object => @comment) %>"));
+$('#flashcard').html($("<%= j(render :partial => 'comment', :string => @answer, :object => @comment) %>"));
+$('#question').css('display', 'none');
+$('#answer').css('display', 'block');
+$('#close').bind('click', function() {
+   $('#question').css('display', 'block');
+   $('#answer').css('display', 'none');
+});

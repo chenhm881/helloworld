@@ -1,20 +1,3 @@
-
-<p>
-  <b>Comment:</b>
-  <%= @comment.content %>
-</p>
-
-<div id="init-msg">
-<%= form_tag(answer_path, remote: true) do %>
-<p>
-  <b>number: <%= label_tag :question, @question %></b>
-</p>
-<%= hidden_field_tag :question, @question %>
-<%= hidden_field_tag :id, @comment.id %> 
-<%= text_field_tag :answer, @answer %> 
-<%= submit_tag 'Answer'%>
-<% end %>
+<div id="flashcard">
+<%= render 'comment' %>
 </div>
-<div id="msg"></div>
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', @article %>
