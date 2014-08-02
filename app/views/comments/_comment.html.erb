@@ -1,6 +1,7 @@
 <div id="question" style="display:block">
 <p>
    <b><%=@comment.content %></b>
+   <span>excel: <%= @sinfo %></span>
 </p>
 <%= form_tag(answer_path, remote: true) do %>
 <!--

@@ -37,7 +37,13 @@ gem 'jquery-rails'
 
 # To use debugger
  gem 'debugger'
+ gem 'roo', '~>1.9.3'
+ gem 'rubyzip', '< 1.0.0'
+ gem 'spreadsheet', '< 0.8.8' 
+ gem 'nokogiri', '~>1.6.0'
+ gem 'google-spreadsheet-ruby', '~> 0.3.1'
 
+ #gem 'spreadsheet', '~> 0.9.3'
  group :development, :test do
       gem "rspec-rails"
       gem "cucumber-rails", :require => false
