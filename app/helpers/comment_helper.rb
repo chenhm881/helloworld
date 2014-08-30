@@ -24,15 +24,13 @@ module CommentHelper
          @answer = args[2]
          @input = args[3]
       end
-     
-  
+       
   end
   class VocabularyCard < FlashCard
     attr_accessor :comment, :sinfo
     
     def initialize(*args, &block)
       super(*args, &block)
-      
     end
     
     def rand_record
@@ -48,7 +46,7 @@ module CommentHelper
 
     def excel_info
       #s = Openoffice.new("myspreadsheet.ods")      # creates an Openoffice Spreadsheet instance  
-      file = File.join(Rails.root, 'public', 'synergy.xls')
+      file = File.join(Rails.root, 'public', 'translation.xls')
       s = Excel.new(file)           # creates an Excel Spreadsheet instance  
       #s = Google.new("myspreadsheetkey_at_google") # creates an Google Spreadsheet instance  
       #s = Excelx.new("myspreadsheet.xlsx")         # creates an Excel Spreadsheet instance for Excel .xlsx files  

@@ -1,0 +1,28 @@
+$('#dialog').css("display", "block");
+$('#dialog').html('<%=@flashcard.english %>');
+$(function() {
+    var turnback = true;
+    $( "#dialog" ).dialog({
+      autoOpen: true,
+      show: {
+        effect: "blind",
+        duration: 1000
+      }
+    });
+    $(".ui-dialog-title").unbind('click');
+    $(".ui-dialog-title").bind('click', function() {
+      if (!turnback) {
+        return;
+      }
+      turnback = false;  
+      $( "#dialog" ).dialog( "close" );
+      $( "#dialog" ).dialog( "open" );
+      $('.ui-dialog-title').html('<%=@flashcard.english %>');
+      $('.ui-dialog-title').css('border', '0px;');
+      $('#dialog').html('<%=@flashcard.chinese %>');
+    });
+
+  });
+
+$('.ui-dialog-title').css('border', '1px solid #fff')
+$('.ui-dialog-title').html('单击看背面单词解释');

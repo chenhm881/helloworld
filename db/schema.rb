@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140703125514) do
+ActiveRecord::Schema.define(:version => 20140824063203) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(:version => 20140703125514) do
     t.datetime "updated_at",                :null => false
     t.integer  "article_id", :default => 0
     t.string   "answer"
+  end
+
+  create_table "dictionaries", :force => true do |t|
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "english"
+    t.text     "chinese"
+    t.text     "description"
   end
 
   create_table "posts", :force => true do |t|

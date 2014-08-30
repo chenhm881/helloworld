@@ -6,12 +6,15 @@ Helloworld::Application.routes.draw do
   match '/signin' => 'sessions#new', via: :get
   match '/signout' => 'sessions#destroy', via: :delete
   match 'articles/search(.:format)' => 'articles#search' , :as => :search, via: :get 
-  match 'comments/answer(.:format)' => 'comments#answer', :as => :answer, via: :post  
+  match 'comments/answer(.:format)' => 'comments#answer', :as => :answer, via: :post 
+  match 'dictionaries/flashcard(.:format)' => 'dictionaries#flashcard', :as => :flashcard, via: :get
+  match 'dictionaries/answer(.:format)' => 'dictionaries#answer', :as => :flash_answer, via: :post 
   resources :articles
   resources :users
   resources :comments
   resources :sessions, only: [:new, :create, :destroy]
-
+  resources :dictionaries
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -20,8 +20,10 @@ class CommentsController < ApplicationController
     @vocalularycard = CommentHelper::VocabularyCard.new(44, 2, 1, 2,lambda{|value='here'| puts value})
     @comment = @vocalularycard.rand_record
     @question = @comment.content
-    @sinfo = @vocalularycard.excel_info
-    CommentHelper::Table.create_import_template
+    #@sinfo = @vocalularycard.excel_info
+    debugger
+    @sinfo = "test"
+    #CommentHelper::Table.create_import_template
     
   end
 
